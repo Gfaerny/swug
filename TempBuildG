@@ -1,0 +1,1 @@
+g++ test3.cpp windowutils.cpp nowtime.cpp -o test3 -lsfml-graphics -lsfml-window -lsfml-system -lX11
