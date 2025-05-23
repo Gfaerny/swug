@@ -112,19 +112,36 @@ void MinimizeWindowX11(sf::RenderWindow& window)
                 
                 MinimizeWindowX11(window);
 
-                std::cout << "swug_windowutils : Window get hided.Massage time : " <<  std::endl;
+                std::cout << "swug_windowutils : Window get hided | Massage time : " <<  std::endl;
                 ///hideWindow = true;
                 NowTimeSwug();
             }
 
 ///         if we try to alt and drag window
-            else if(event.key.alt)
+///         grag gonna stated
+
+            if (event.type == sf::Event::MouseButtonPressed &&
+            event.mouseButton.button == sf::Mouse::Left &&
+            sf::Keyboard::isKeyPressed(sf::Keyboard::LAlt)) 
             {
-                
 
-            }            
-
+            AltDragIsUsed = true;
+            GrabAmount = sf::Mouse::getPosition() - window.getPosition();
+            }
             
+            if (event.type == sf::Event::MouseButtonReleased &&
+                event.mouseButton.button == sf::Mouse::Left) 
+            {
+                AltDragIsUsed = false;
+            }
+            
+            if (event.type == sf::Event::MouseMoved && AltDragIsUsed) 
+            {
+                sf::Vector2i mousePos = sf::Mouse::getPosition();
+                window.setPosition(mousePos - GrabAmount);
+            }
+
+
         }
 
 

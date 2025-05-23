@@ -39,6 +39,9 @@
 
     private:
 
+        bool AltDragIsUsed = false;
+        sf::Vector2i GrabAmount;
+
         sf::CircleShape CloseButtonC;
         sf::CircleShape HideButtonC;
         std::vector<sf::CircleShape> ButtonShapes;
