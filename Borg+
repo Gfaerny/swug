@@ -1,0 +1,7 @@
+rm -r build
+mkdir build
+
+g++ -Iinclude -fPIC -c src/windowutils.cpp -o build/windowutils.o
+g++ -Iinclude -fPIC -c src/nowtime.cpp -o build/nowtime.o
+ar rcs build/swug.a build/nowtime.o build/windowutils.o
+g++ -shared -o build/swug.so build/nowtime.o build/windowutils.o

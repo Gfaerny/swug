@@ -118,7 +118,7 @@ void MinimizeWindowX11(sf::RenderWindow& window)
             }
 
 ///         if we try to alt and drag window
-///         grag gonna stated
+///         drag gonna stated
 
             if (event.type == sf::Event::MouseButtonPressed &&
             event.mouseButton.button == sf::Mouse::Left &&
